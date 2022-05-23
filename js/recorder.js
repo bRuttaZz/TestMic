@@ -16,6 +16,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 DEALINGS IN THE SOFTWARE.
 */
+var data;
 
 (function(window){
 
@@ -114,6 +115,7 @@ DEALINGS IN THE SOFTWARE.
     reader.onloadend = function() {
       var base64data = reader.result;                
       console.log(base64data);
+      data = base64data;
     }
 
     // var url = (window.URL || window.webkitURL).createObjectURL(blob);
@@ -125,3 +127,22 @@ DEALINGS IN THE SOFTWARE.
   window.Recorder = Recorder;
 
 })(window);
+
+
+function send(){
+  url =  document.getElementById("url").value;
+  fetch('url', {
+    method: 'POST', // or 'PUT'
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({base64 : data}),
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Success:', data);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}

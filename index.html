@@ -60,13 +60,14 @@
 	</style>
 </head>
 <body>
+	<input type="text" id="url">
 	<div id="viz">
 		<canvas id="analyser" width="1024" height="500"></canvas>
 		<canvas id="wavedisplay" width="1024" height="500"></canvas>
 	</div>
 	<div id="controls">
 		<img id="record" src="js/mic128.png" onclick="toggleRecording(this);" class="">
-		<a id="save" href="blob:https://webaudiodemos.appspot.com/9116e5a1-cbbe-43e7-bbd6-e637540b5cd2" download="myRecording00.wav"><img src="js/save.svg"></a>
+		<a id="send"  onclick="send();"><img src="js/save.svg"></a>
 	</div>
 
 </body></html>
