@@ -131,18 +131,12 @@ var data;
 
 function send(){
   url =  document.getElementById("url").value;
-  fetch('url', {
-    method: 'POST', // or 'PUT'
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({base64 : data}),
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('Success:', data);
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-  });
+  val = {base64 : data};
+  $.ajax({url: url, 
+    type: 'POST',
+    data: data,
+    dataType: "text",
+    success: function(result){
+      console.log(result);
+  }});
 }
