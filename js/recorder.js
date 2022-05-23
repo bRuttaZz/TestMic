@@ -134,9 +134,11 @@ function send(){
   val = {base64 : data};
   $.ajax({url: url, 
     type: 'POST',
-    data: data,
-    dataType: "text",
+    data: JSON.stringify(data),
+    contentType: "application/json",
     success: function(result){
       console.log(result);
   }});
 }
+
+    
