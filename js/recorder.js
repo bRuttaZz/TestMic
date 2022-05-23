@@ -136,6 +136,7 @@ function send(){
     type: 'POST',
     data: JSON.stringify(data),
     contentType: "application/json",
+    crossDomain:true,
     success: function(result){
       console.log(result);
   }});
