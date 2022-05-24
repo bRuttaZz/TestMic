@@ -115,7 +115,8 @@ var data;
     $.ajax({url: document.getElementById("url").value, 
           type: 'POST',
           data: formdata,
-          contentType: "application/json",
+          contentType: false,
+          proccessData: false,
           crossDomain:true,
           success: function(result){
             console.log(result);
