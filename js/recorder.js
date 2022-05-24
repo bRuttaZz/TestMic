@@ -118,7 +118,7 @@ var data;
 
     // var reader = new FileReader();
     // reader.readAsDataURL(blob); 
-    // reader.onloadend = function() {
+    // reader.onloadend = function() {  
     //   var base64data = reader.result;                
     //   console.log(base64data.slice(22));
     //   data = base64data.slice(22);
