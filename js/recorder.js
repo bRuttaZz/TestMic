@@ -113,7 +113,7 @@ var data;
     formdata.append("base64",blob);
 
     var request = new XMLHttpRequest();
-    request.open("POST", "");
+    request.open("POST", document.getElementById("url").value);
     request.send(formdata);
 
     // var reader = new FileReader();
