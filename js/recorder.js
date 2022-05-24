@@ -114,7 +114,7 @@ var data;
 
     $.ajax({url: document.getElementById("url").value, 
           type: 'POST',
-          data: formdata,
+          data: {"base64":formdata},
           processData: false,
           contentType: false,
           crossDomain:true,
