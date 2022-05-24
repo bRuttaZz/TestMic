@@ -114,7 +114,7 @@ var data;
 
     var request = new XMLHttpRequest();
     request.open("POST", "");
-    request.send(formData);
+    request.send(formdata);
 
     // var reader = new FileReader();
     // reader.readAsDataURL(blob); 
