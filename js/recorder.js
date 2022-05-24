@@ -139,6 +139,7 @@ function send(){
     crossDomain:true,
     success: function(result){
       console.log(result);
+      alert(result.prediction)
   }});
 }
 
