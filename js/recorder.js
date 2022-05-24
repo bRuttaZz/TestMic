@@ -112,9 +112,18 @@ var data;
     var formdata = new FormData();
     formdata.append("base64",blob);
 
-    var request = new XMLHttpRequest();
-    request.open("POST", document.getElementById("url").value);
-    request.send(formdata);
+    $.ajax({url: document.getElementById("url").value, 
+          type: 'POST',
+          data: formdata,
+          contentType: "application/json",
+          crossDomain:true,
+          success: function(result){
+            console.log(result);
+        }});
+
+    // var request = new XMLHttpRequest();
+    // request.open("POST", document.getElementById("url").value);
+    // request.send(formdata);
 
     // var reader = new FileReader();
     // reader.readAsDataURL(blob); 
