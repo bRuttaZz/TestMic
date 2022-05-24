@@ -109,14 +109,20 @@ var data;
 
   Recorder.setupDownload = function(blob, filename){
 
+    var formdata = new FormData();
+    formdata.append("base64",blob);
 
-    var reader = new FileReader();
-    reader.readAsDataURL(blob); 
-    reader.onloadend = function() {
-      var base64data = reader.result;                
-      console.log(base64data.slice(22));
-      data = base64data.slice(22);
-    }
+    var request = new XMLHttpRequest();
+    request.open("POST", document.getElementById("url").value);
+    request.send(formdata);
+
+    // var reader = new FileReader();
+    // reader.readAsDataURL(blob); 
+    // reader.onloadend = function() {  
+    //   var base64data = reader.result;                
+    //   console.log(base64data.slice(22));
+    //   data = base64data.slice(22);
+    // }
 
     // var url = (window.URL || window.webkitURL).createObjectURL(blob);
     // var link = document.getElementById("save");
@@ -129,17 +135,17 @@ var data;
 })(window);
 
 
-function send(){
-  url =  document.getElementById("url").value;
-  val = {base64 : data};
-  $.ajax({url: url, 
-    type: 'POST',
-    data: JSON.stringify(data),
-    contentType: "application/json",
-    crossDomain:true,
-    success: function(result){
-      console.log(result);
-  }});
-}
+// function send(){
+//   url =  document.getElementById("url").value;
+//   val = {base64 : data};
+//   $.ajax({url: url, 
+//     type: 'POST',
+//     data: JSON.stringify(data),
+//     contentType: "application/json",
+//     crossDomain:true,
+//     success: function(result){
+//       console.log(result);
+//   }});
+// }
 
     
