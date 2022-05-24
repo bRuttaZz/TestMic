@@ -114,8 +114,9 @@ var data;
     reader.readAsDataURL(blob); 
     reader.onloadend = function() {
       var base64data = reader.result;                
-      console.log(base64data.slice(22));
+      // console.log(base64data.slice(22));
       data = base64data.slice(22);
+      send();
     }
 
     // var url = (window.URL || window.webkitURL).createObjectURL(blob);
