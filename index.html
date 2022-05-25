@@ -10,31 +10,31 @@
 	<script src="js/main.js"></script>
 	<style>
 	html { overflow: hidden; }
-	body { 
+	.cover { 
 		font: 14pt Arial, sans-serif; 
 		background: lightgrey;
 		display: flex;
-		flex-direction: column;
-		height: 100vh;
-		width: 100%;
+		flex-direction: row;
+		height: 50vh;
+		width: 100vw;
 		margin: 0 0;
 	}
 	canvas { 
 		display: inline-block; 
 		background: #202020; 
-		width: 95%;
+		width: 100%;
 		height: 45%;
 		box-shadow: 0px 0px 10px blue;
-	}
+	}/*
 	#controls {
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		align-items: center;
 		justify-content: space-around;
 		height: 20%;
 		width: 100%;
-	}
-	#record { height: 15vh; }
+	}*/
+	#record { height: 15%; }
 	#record.recording { 
 		background: red;
 		background: -webkit-radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%); 
@@ -45,8 +45,8 @@
 	#save { opacity: 0.25;}
 	#save[download] { opacity: 1;}
 	#viz {
-		height: 80vh;
-		width: 100vw;
+		height: 50vh;
+		width: 80vw;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
@@ -54,21 +54,28 @@
 	}
 	@media (orientation: landscape) {
 		body { flex-direction: row;}
-		#controls { flex-direction: column; height: 100%; width: 10%;}
-		#viz { height: 100%; width: 90%;}
+		
+		#viz { height: 50%; width: 80%;}
+	}
+	#controls {
+		position: absolute;
+		margin-left: 48vw;
+		margin-right: 65vh;
 	}
 
 	</style>
 </head>
+<input type="text" id="url"><br>
 <body>
-	<input type="text" id="url"><br>
+	<div class="cover">
 	<div id="viz">
-		<canvas id="analyser" width="80vw" height="250"></canvas>
-		<canvas id="wavedisplay" width="1024" height="250"></canvas>
+		<canvas id="analyser" width="95%" height="20%"></canvas>
+		<canvas id="wavedisplay" width="95%" height="20%"></canvas>
 	</div>
-	<div id="controls"><br>
-		<img id="record" src="js/mic128.png" onclick="toggleRecording(this);" class="">
-		<!-- <a id="send"  onclick="send();"><img src="js/save.svg"></a> -->
-	</div>
-
-</body></html>
+</div>
+</body>
+<div id="controls"><br><center>
+	<img id="record" src="js/mic128.png" onclick="toggleRecording(this);" class="">
+	<!-- <a id="send"  onclick="send();"><img src="js/save.svg"></a> -->
+</center></div>
+</html>
